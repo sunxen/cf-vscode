@@ -1,0 +1,59 @@
+{
+  "name": "codefinder",
+  "displayName": "Code Finder",
+  "description": "纯粹的编程知识分享社区，可以发表和查找任何编程相关的问题，免费使用`ChatGPT`等AI工具进行回答。",
+  "version": "2.0.0",
+  "publisher": "sunxen",
+  "icon": "logo.png",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/sunxen/cf-vscode"
+  },
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cf-vscode.helloWorld",
+        "title": "在CodeFinder查找"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "cf-vscode.helloWorld",
+          "title": "<menu-item-label>",
+          "description": "<menu-item-description>"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "vsce package --yarn",
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.78.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4",
+    "@vscode/test-electron": "^2.3.0"
+  }
+}
